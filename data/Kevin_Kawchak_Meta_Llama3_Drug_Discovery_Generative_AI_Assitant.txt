@@ -1,0 +1,586 @@
+okay awesome thanks everybody for coming on my name is Kevin kek I'm the founder CEO of chemical Q device so here for
+Thursday May uh 2nd 2024 now this is going to be about Metal llama 3 drug
+drug Discovery as a generative AI assistant and developments thereof um
+some of these you know llama 2 or other GPT related uh llms and I'm mostly going to be focusing
+on agents today I covered fine tuning and rag last week and then architecture
+we'll put off for a little bit later um so these are the basic agents so you have to know these if you want to do
+anything with uh generative AI just the stock you know whatever if it's just the meta AI or if you're using chat GPT or
+hugging face those aren't going to cut it um you're going to use have to use either some um for your specific data
+fine tuning or rag or like a rag agent so the way that these go are basically left to right so the simple one is
+basically it just it acts after perceiving a the current condition and then they go with increasing power given
+to the agents so imagine that and I'll show you in these upcoming uh specific slides with the you know literature
+reviews in specific uh and you have goal base which is giving it a little bit more as far as like it's trying to
+accomplish a certain goal and acting like that and then you have uh utility space now the big one is the learning
+agents so these are the ones that are obviously like analyzing complex patterns and you know when we're talking
+about using more and more agents we're talking about you know giving the it the power to uh analyze code write code fix
+code these types of things so you know this is happening today and if you're
+not aware um you know this is these are the next steps after you kind of learn llms is is the use of Agents here so
+what we see here is basically the agents in the middle now you're going to have a user request that's typically human um
+to you know basically uh give this back to the where you have the agent brain as
+well um the agent cor acting as the coordinator and then you're going to also have planning which assists the
+agent in planning future actions and memory manages the agent's past behaviors so this isn't I believe
+anything you know it's not like straight Ram or anything like that it's just this is the agent and it needs to have this
+memory uh in a more complex form that just you know just Ram that how we imagine it on
+computers okay so this is the first big paper here now um this is an ACS
+publication it's just done by a single individual but is really quite well and if you've tuned in the past couple
+months this lamb MIT and in specific it was the for stretching of the protein uh
+it's this group again that's that's up to this so they call the paper generative retrieval augmented onto
+ontological graph which is kind of unique to this paper and multi-agent strategies for interpretive uh large
+language model based materials designed so obviously the words that stick out the ontological ontological graph is
+basically a way to you know map things so it makes it more interpretable and then multi-agent and I'll show you that
+as well so the architecture that was used here is basically this llama 270 billion chat it's very similar to if you
+were to try to incorporate this with the Llama 3 70 70 billion parameter instruct
+um now they also have to use chat GPT uh 3.5 and four for some these other kind
+of uh tasks that's going on now what carried on from his previous research is this fine-tuning so they call it Mech
+GPT so this is uh figure like mechanical properties of materials and this time
+you know well it's it's still based on the lamu you know this uh open Orca platypus but what's different is the
+training so now it's on 8200 question answer pairs with Max tokens of 768 okay
+and it this time these 8200 pairs are coming from either this book it's
+atomistic modeling or Wikipedia and also they use rag so for
+the rag portion chat GPT 3 or sorry it's just GPT 3.5 turbo and
+gp4 um to to generate this ontological graph and then they said this uses uh
+it's called nebula graph llama index and then also you have this um embedding
+based index which is separate from the ontological graph okay and then you have
+agents uh which is len chain you know so when you get into this is you're going to see link chain all over the place um
+most of the ones that I've seen you know with agents use this it's an enabling type of uh software platform and this
+all mini LM L6 V2 as well you're also going to get this uh so autogen is used
+for the agent modeling now what's shown here is basically two of their different
+designs now this first one and actually I read an Andrew Ang article recently
+and it actually kind of warns against using this type of thing is that it can actually um you know collapse the model
+is what he what he said is basically you keep getting the answer and you keep feeding it back in um to get a better
+and better solution so this can be used but it comes with say you know some warnings behind it now the second one
+here with B is you're getting these data sources with knowledge based and then this gets uh moved in with the specific
+ontological graph so this is the kind of the alternate way of doing this and then you get this answer here now the really
+interesting part is basically you have the set of llm um agents now this is
+kind of set up like the office structure you have a manager scientist data retriever DFT simulator and the specific
+task is basically giving it this you know it's f one two three four five five
+seven carbon chain and which of these so if you added another carbon oxygen or nitrogen would create the lowest energy
+structure so obviously this is not rocket science um however it shows the cooperation between all of these
+separate agents in order to determine in this case it was oxygen you know being
+the the best hetero atom actually it could have been carbon too uh to create that structure um as shown there okay so
+the next one here so this is a very good example of what's going on like so this is emerging research and I would say you
+know if you're just getting into this or if you're just getting into llms these are those next kind of steps that you'll
+get get into so on the left here is you have the set of Agents okay so boss
+senior engineer modeling expert reviewer now the boss in it's like within real
+world might not in this specific case want to retrieve information uh the
+agents to through four would do that okay and they're working alongside uh
+these papers so in each of these cases this is a specific application that
+they're using with mpin uh protein material expert and multiscale modeling
+expert that's reflected by the papers okay so they're calling each of these separate papers agents and um agent two
+through four can I believe at any time access one of these agents AG that's an
+expert on that specific Source okay so the the issue is and I'll get to this a little bit later with uh Andre karpathy
+uh in one of his kind of llm talks uh recently within the past year is that he talks about it's the llms are dreaming
+and they're basically it's a compressed version of like you know if you have trillion terabytes of data now you're
+down to like megabytes or I'm sorry um more so gigabytes of data uh so figure
+like it's 70 billion parameters I think that's about 150 gigabytes but that's not the full representation of the
+original data so it can know a lot it could do these types of correlations um but you using like rag agents here is it
+it boosts up that um more specific and in this case you can site The Source because we know what the sources are
+because we designated what they were it's just you're using the big llm for context and kind of this reasoning but
+now aimed at a specific paper or these agents now now they said the most the
+most U powerful one of of them all was basically this assistant that can write
+code and the other one can execute code and um you know in this specific one
+it's using the O2 molecule and you'll see here with the energy trying to minimize it as well so they kind of
+highlighted this one it doesn't look like there's as many moving Parts but as far as the the power behind it because
+you're familiar with co-pilot well co-pilot and other services too too these are kind of like the you know the
+like the what came before all of like the you know more powerful agents and what we'll see today and you're going to
+see more and more of this type of like specialized case where you're using you know LL llm agents to make up for kind
+of like the hallucinations or you know even if it's trained on original data set it doesn't mean that um it
+understands it 100% right there's there's a level of compression and I'll get to that with Andre car Kathy's
+explanations here so this is the paper that's really interesting so it's called chem uh and it's augmenting large
+language models with chemistry tools and these researchers basically said this is for organic synthesis drug Discovery and
+materials design it's an AI agent autonomously planned and executed the
+synthesis of an insect repell it's called DEET uh three Organo C Catalyst
+and guided the discovery of a novel chrom for okay so these are agents working you know uh in a nutshell it the
+AI is getting so powerful that in a sentence or two say we want it to cost a certain amount or we want it to have
+this specific property or like has to be this uh you know ISO electric point or
+this whatever it just has to be able to do these things so what it is is basically you have all these separate uh
+tools to supporting a powerful you know a current gp4 and and in this case and
+then it goes over and then it goes straight to the robo reaction and then IBM is designed by IBM to make the
+molecules okay so it's really quite an interesting thing because like I showed in the previous example is basically you
+have all these separate agents they're they have their own specialized task or um skills and it's just like in the
+workforce but now all this is being done with software or some of it so in this
+specific paper we see GP T4 as the evaluator now the issue with this
+specific um case is you have to you you have to whatever the end result is if it
+says take 10 steps like 10 reactions to get to this uh product well the
+evaluator might think that that's an awesome route because it's it's very verbose and it it contains that's
+typically an issue with today's llms is that it just loves this like flowery language and very well constructed
+things even if it's not correct okay so it's it's heading down that road and if
+you've ever typed into other you know gpts or or met. AI you can kind of get
+the sense where it's just like fluffy and it's just like multiple paragraphs but not necessarily really to solve the
+answer because it doesn't know it's just making things up okay and then so gp4
+was also the control okay so in this specific case it said so say I want this
+uh to produce this uh Organo Catalyst um and then it comes up with a reaction
+pathway of how exactly to do that and those instructions are sent over to Robo reaction okay and chro is again gp4 but
+it's augmented with these chemistry tools so as you get further and further along with llms and using brag and using
+you know fine-tuning and whatever you have to use is that it's it's kind of
+making up for the the the you know it's llms on their own if you access met. or
+huggingface uh. or chat gbt is you know they're very uh they're well versed on a
+lot of things but it's hard to tell if it's just kind of generating things that aren't uh necessarily useful or if it's
+giving a direct answer so the best answers I've got based on pointing it to my information with rag have been the
+shortest more concise ones that just answer the question just how it how it says so the tools that they use and
+again there's it's three different uses of gp4 here it's a very similar architecture to llama 3 um they both use
+Transformers and it's using obviously human web search lit search and all
+these things they spoke very highly of the Python repple which is it both these
+agents both write and run code on their own as we as we told them to and you
+know different um so Smiles is basically Bally you know it's an abbreviation uh
+being able to tell what the molecular structure is in in a text form and some other interesting ones modify mole it
+actually modifies the molecule uh and in some cases some of these are proprietary some of these are paid so it wasn't
+quite sure exactly you could look at this paper too and at the end it'll go through just like I'm I'm saying like I
+want a molecule with these specific characteristics and it's using gp4 plus these tools to give you a more accurate
+response now the other things obviously when you talk about these things is control chemical check um is this
+something that should be made or is it control and is it something you know
+other issues with safety these types of things or even patented molecules so should it be made uh by the robo
+reaction now the agent again is this length chain or it's it's it's actually the software the it's the library behind
+a lot of this to enable the use of Agents um for these types of applications now we see here is
+basically you know this first part is expert design chemistry tools that's the list that I just go gave you it's like
+there's 18 different one one of those and they use the this all falls under
+prompting okay so when you're using GPT 4 3.5 or whatever you're giving it
+prompts and the specific Chain of Thought They say thought reason plan is how they used it and this gets uh
+basically it gets sent to the robber re reaction and then analyze after that okay so this
+top part A is is more like how this whole works and it's just a brief
+explanation uh and again it's it's taking some input so to say I want this specific characteristics of this
+compound at this cost these types of things it has the power to do that and
+I'll show you in the next slide of all the different molecules they were able to do and again here's some of these
+tools as mentioned above um and there's other things such as reaction prediction uh reaction to name
+uh other useful tools that you want to um say you didn't off the top of your mind know exactly everything what you
+wanted to do so this is a very good description of what's done so again this is recent this is late I think this is
+October 2023 and they say find and synthesize a thyro Ura organocatalyst which
+accelerates a Deal's aler reaction so these three at the bottom are all tho
+Ura Catalyst okay and then it goes on to these other things and this is um you
+know you see smiles here so this is the format of the actual molecule and this is directly tied to like biochemistry as
+well and then it gets sent to Robo reaction which I don't think is anything new but it's kind of like an end it is
+an endtoend application so if I only want to tell the software in a sentence
+or two exactly what I want made with you know either based on certain characteristics you know physical
+properties chemical properties you know that's what you would do and the ones that I highlighted here these are the
+ones that they actually were be they were able to use with geni you know with this chat gp4 and then on top of it they
+used the um their specific chem cro which is gp4 plus the chemical tools so
+you see the the de uh the three catalysts here and then the chromophor and the lower right hand
+corner and here's an example so it's not always the case that gp4 is worse than
+the chem cro but it just gives you an example so say for like you know when I pick out my own rag data that I want to
+use uh versus this um that you see chro was able to do this in a single
+step so you just take these two separate molecules at in thf at 25 degrees C and
+you get the Organo Catalyst okay but the gp4 route like just the main mainstream
+one that you would just say type into you should be able to type this straight into GPT I I believe chat
+GPT and you know you get something like this so it's these one two three you
+know it's multisteps with M uh protecting groups it's a very uh more
+detailed route to get to this CIS and again you could take this and you could send this um two and this might work
+actually I think they said in this specific case that maybe two these steps don't work but there there could be uh
+answers that make sense with gp4 that are just longer and again I think that's the main in a nutshells what you'll see
+with when you're working with llms is you're typically after the shorter more concise answers and those are basically
+they they come from when you have more specific data as opposed to relying on a a you know the a general framework like
+www. met. or um you know chat GPT so
+they said with the GPT synthesis some inaccurate IU IU I AP names describe reactions not
+need it it had issues with mul of these uh incorrect routes unnecessary
+protection so you see these bot groups those are protecting it uh at that specific reaction point and then you
+deprotect it a at a later time so um anyways in this specific one this was
+actually in the in the supplement so again it's s a kind of basis case as far
+as which works best when um but the big thing is it it does work for some molecules right so it's and I'll get to
+the end slide where it shows kind of like um which was better in in what cases now here's for the
+chromophor the input is basically what you give um as a human chemist for the
+AI model to work on okay and then it's as specific as the final step it says
+suggest a synthetic plan for the one with wavelength closest to 369 and then
+you can see at the bottom um it's close to 369 so as far as how specific you can
+get uh it's you know you kind of have to go through the paper there's a lot of examples like I said in the supplement
+that are very specific questions like that you or I would have as saying like could AI even come up with this let
+let's give it a shot um there's other tools as well but think what you'll see
+like say reaction I forget what these things are called in like scifinder and these types of things but you know
+there's other tools to use as well more standard tools but you're going to see this power with using multiple agents
+yeah or to and tools too uh with the main llm that you know this is the this
+is the software to kind of work on here and so this is the Catalyst again
+so remember I showed you those three catalysts so this is takamoto catalyst here and this is basically saying plan
+synthesis of this organic Catalyst okay so then it goes through this and you can
+see even in more detail in the paper too as far as uh other ones but here's an example this is an input so this is
+something that I want so plan this uh synthesis and it goes through the specific um chain here so you get Smiles
+action input observation thought now the issue what they found and I mentioned this before is with the evaluator GPT
+which is GPT 4 but it's used as as an evaluator like the gp4 output even
+though expert evaluators did not like it at all so you know the issue right now
+is it it likes its own kind meaning that it likes kind of like the verbose or fluffiness even though it's not correct
+and they said that using gp4 you know usually the answers would sound a lot
+better um but it in incorporating all these tools and there's probably additional um improvements in that too
+is that sometimes the answers are just like plain you know it's not like flowery
+so that that was the issue of a study here is basically the evaluator GPT is
+basically not looking for um 100% accuracy on the chemistry side whereas
+the expert expert evaluators that they had on their own these human evaluators really like this answer
+so you know it's just one of those things it's just it's it's all likely getting better now here's what they
+showed as far as like they said it tended to be like the more complex task
+uh favored chem cro and you can see the arrow bars are quite large here um but
+you know they were able to get it working like I said with the uh the deet and then the three Organo catalysts and
+then so that's four and then also with the um the chromophor so that's five
+five of these molecules to make up a or I shouldn't say that but like design a a
+good pathway and then send those reaction details to the IBM Robo you know uh
+chemistry you know robot to make as far as like a fully auto automated kind of thing so and you see here in the lower
+right hand corner they you know evaluator GPT score they kind of um
+didn't look at that as much just because you know the we're still experts as
+humans but the the like the computer has a lot more that it can kind of um chunk
+through but in this case that uh not as accurate okay any questions at this
+point so these were two papers you know all within the past year the first paper I covered was 2024 and then the other
+paper um was say uh later so October
+2023 I believe and then so if not I'm going to transition a little bit into so this is
+if you go to met. a and it should be pretty similar to chat GPT these are
+trained on a lot more data setss than you would ever believe for most of us on biochemistry chemistry medicine uh
+biotechnology and I'll show you some of the data sets that you can that they're trained on um but obviously there's some
+herent issues with uh you know the hallucinations these these types of things okay so um you know B basically
+they're they're going to require fine-tuning and rag on specific data for high accuracy is there a question
+hi Kevin uh sorry I joined late so I didn't uh get to hear the first part but
+I have a question on the uh this second paper you uh showed that paper where
+they have uh you know the deal soer reaction or or something similar and
+they uh you know you said you know they are trying
+to get a meaningful uh chemistry uh prediction for those
+predicted reactions so uh one way to do that is to
+check the kinetics of the reaction to check if the reaction has a high energy barrier or something like
+that uh in in our in my research uh uh
+you know that I've been I we just published a paper on this that if we have say you know a bunch of smart
+for reactants and products can we predict their transition States and can we predict the energy barriers using
+machine learning and not using uh you know language models but using say other
+regular graph neural networks or something like that uh do you think that uh you know
+those kind of things uh can help uh here
+in this yeah anytime you add additional learning components it it's definitely
+going to help and you know say if they're using 18 tools it's it's definitely helping in that case um so we
+can come back to that uh towards the end you know as far as like a longer conversation with
+it and then so this next part here is basically this is um if you take these
+mole instructions from this zg unlp it's basically they training set that they
+use it has this exact instruction and then it has the answers as well so what
+I did is meta AI so it's meta doai um it's based on of llama 370 billion
+parameters and you can use that as well but it's really slow if you just have a single a100 actually you're probably
+going to need at least 300 gigs of RAM so anyways if this worked this would be awesome be because you could take these
+mole instru instuctions and then plug them right into the the web browser and
+then get the correct answer so as you can see this is probably not a correct answer and you could start to see you
+know some of the especially the the I think these are veils here the triple vs um and it's it's a shorter sequence too
+but it'll go through and it'll explain all of these because it's it's seen a lot of these important data sets um you
+know based what we've seen before and I I'll show you in the coming slides too and as far as like this part makes sense
+and this part makes sense but the thing that you have to remember whether you think it's an accurate answer or not is
+that lolms are are trained on much data and it might be pulling you know part of
+this answer from one you know part of a data set that's biochemical uh related
+and a different one so the one that the author kind of came up with the came up
+with a question this mole instruct is this is the answer that they gave as this rather lengthy
+um you know it's probably a couple hundred uh amino acids in this in this specific
+case and they also give you know the rationale behind it and I asked it a
+list all data sets that was used in this one so these are big data sets unipro pdb ncbi enzyme correction geneontology
+actually shouldn't need the well I don't think it needs the gene um keg Pam so
+it's just it's deceiving to to look at the data sets that meta a was trained on
+and then you know uh base your whole research off of that okay because
+there's there's compression there's hallucinations there's things that we don't fully understand about it and in
+fact if you ask it and this is separate from the previous study um please list all of the medical data sets you are
+trained on so it gives a least of it a list of at least 10 I've got at least 20
+I've got up to 20 on one of these and and then which are the ones uh please list all the biotechnology data sets uh
+here are all the pharmacology data sets so again I don't think it's an accurate tool to use today you know for Designing
+proteins or DNA and these types of things although it's based on a lot of this data it just doesn't know how to
+put all the pieces together quite yet and I think that it's getting a lot better but it's it's definitely not
+something that you would want to use solely as a research tool for very specific answers okay and Andre karpathy
+goes through this and he says basically it's it's more involved and he says think of it as compressing the internet
+where in this specific case 10 terabytes of text you know and this is the the part where you hear if it takes hundreds
+of millions of dollars to train I think met uh llama 3 was over 100 million and
+um you know so they're saying two million at these many flops and then 140 gigabytes corresponds to 70 billion
+param for llama 2 and it's very similar in size it it should actually be very
+similar for llama 3 uh 70 billion in these cases as well so Andre Kathy is
+kind of an AI expert in the space uh he's definitely you know done stuff with Tesla and uh I think open AI at
+1.2 and it says it dreams of things so it says uh you could look at it like
+there's a Java code dream Amazon product dream a Wikipedia article dream and
+again for G for I would say general information so this goes for bad AI or chat gbt or hugging face or others or
+even Brock probably is that um for the general stuff that people ask a lot of
+questions for they you know they it does use rag to a certain extent but it's not
+going to uh sit in you know if it takes several minutes or several hours to do rag with the general model I don't think
+it's going to do that and then it says so how does this work it's basically you know we know there's billions of
+parameters and how we know how to iteratively adjust them to make it a
+better prediction uh but we don't really know how they collaborate to do it so an
+example I don't know if this is still the case you could try it but if you say uh who is Tom Cruz's mother it'll return
+the correct answer Mary Lee feifer but who is Mary Lee Fifer son and it might
+say I don't know so this video is quite recent I think it's within the past year
+and uh it's basically I'll put the link up there too with it so you know in all
+these things you just want to keep in the back of your mind that if you're looking if you're doing research and you
+need something specific um you're really trusting on a lot of other things to to work and you could have you know
+basically you're it's a lot of times they can't actually tell you where it got the data from so that's an that's a
+issue there too and so I covered these and if you you could actually ask meta
+create a table with Laura fine tuning Rag and agents benefits these types of things that'll create it and what I
+mostly covered here was agents okay so I covered those the other couple pretty
+well if you want to retrain on a modified AR architecture you're GNA have to find a data set like with llama 3
+it's not available right so you you're going to have to train on the original architecture with some other data set
+and then on different architecture like yours you train on that same data set and then compare the two I think that's
+the only way of doing that um so if you want to in you know incorporate tensor networks which is done a number of times
+uh with the Transformers uh that would be something you could do so um you know
+basically everything moving forward is going to be biochemistry drugs you know uh generative AI these types of things
+and if you look on a computer screen most times it's in 2D and unless you're
+fresh out of organic chemistry and biochemistry and what other if you took neurochemistry and these types of things
+that it does help to to see the physical aspect of what's going on so when I made
+this structure fenel alanine the fenel right ring definitely uh sits flat okay
+so this is what C6 uh H5 at this point and then alanine is this top portion
+here so I know there's a lot of people coming from a lot of different perspectives so this is the the the
+backbone of polypeptide chains or or proteins so NCC so in this case NH3 the
+chyro carbon or methine and then this back carbon here that's that would have
+been the alanine uh but it's substituting one of the protons for the fenel ring and then it's at neutral pH
+which would be NH3 plus and then Co minus so and it it actually gave a
+pretty good answer as far as uh you know what is or the importance of pheny
+alanine in drug Discovery antibody drug conjugates probes for protein confirmation peptide based images
+antimicrobial activities and more um so again like you know that's the the
+caution out there is anything that you ask and in this case I I can actually view sources and it did give me the
+source Royal Society of chemistry and you also want to check that too because is all this stuff coming from Royal
+Society of chemistry so you can ask more specific questions and I did not have
+good luck saying use this as the rag Source um but if I if I said uh provide
+this answer but it has to have sources then that was something that um it could
+do so in this specific one there was one source and I think I I know not all the
+chat GPT ones provide uh sources but basically anything that you can point to
+you know the source of right so that information you get back back um it can pinpoint what the answer is then you can
+check it in the book right so I guess and Andrew says this uh quite well I I
+just watched one of his videos and he he he B actually it was his uh one of his blogs and he says you know um be very
+careful keep Fe of keep feeding your answers back into the model because it could just you know uh collapse the
+model and then this quote he says given a comp complex task like writing software a multis agent approach so
+agents uh would break down the task into subtask to be executed by different roles such as a software engineer
+product manager designer QA engineer and so on and have different agents
+accomplish uh different tasks so this is Andrew a he's the founder of
+deeplearning.ai I would highly suggest to to sign on to the newsletter it's called the batch and then he does you
+know YouTube video he's most famous I think he's caught taught a course on machine learning before all of the Gen got big and he you
+know very thorough uh in his explanations so I the other thing to
+take from this too is that you know they say chbt or llama 3 or any of these or
+you know Gemini you know it's not going to directly replace people's jobs in most cases it's the people that can use
+the tools so I would say you know it's hard to tell but in grade school and
+college is like you'll more be expected to be able to use these tools for certain parts and then other parts you
+know uh more of the you know the the hard labor um but that's how that's how
+things are going and when you see things like uh an agent for the software engineer an agent for the product
+manager uh for the designer and QA engineer as well is that you know these
+are playing the roles of these people so for those attending and those watching on this discussion it would very much
+behoove yourself to you know really know generative AI agents um fine-tuning Rags
+these types of things and and the limitations of today's llms right because you can you can get back very
+both stuff from any of these right it's kind of dreaming right even if it was
+trained on 15 trillion tokens you know like a more modern numbers with these things so any other questions so as far
+as everything compared to today and what's what's currently available like you have to think of What's um like the
+core software like with llms today yes you have like billions and chat gpts
+gone into trillions of parameters especially with I think gp5 is um you know that's just that's a
+lot of computational power there because it it can look at all these uh pieces of
+data in a big chunk of the internet and then assign parameters to certain typ topics or graphs and these types of
+things so if you're talking more of just like um you know more already existing
+machine learning tools is that you know I don't think that they typically have
+that power built into it as far as llms right so I think that's the big thing
+and if you're talking about agentic Behavior you know setting up um agents to code uh to execute and to um fix
+errors you know that that's another thing and it's all enabled by better Hardware too because the gpus like the
+h100 is I think 141 gigs of RAM they need to update the a100 it's only 40 on
+collab but there's a100 with 80s so it's the it's really the hardware that enables it too and the massive amount of
+storage it takes if you just have 150 gigs for your 70 billion parameters like
+for llama 3 then imagine what it is for everybody else's too and how many times
+do you upload similar types of models to hugging face you know it's it's storage
+and compute and you know bandwidth those types of things is is what we're talking
+about but yeah that's the that's the clear difference that I see with today's tools that most people use and then llm
+based tools is if you have one that you rely on with other tools or rag or fine
+tuning um that would probably be a better substitute than other tools in
+chemistry and biochemistry that are used today any other questions and feel free
+to put in the chat as well so if you came late so this is
+basically uh agents for this specific talk and one of these was more like
+endtoend so the one that I I think is really
+worth looking at is the chem and again I think this was later last year I think
+like October uh the GitHub is up with it so I definitely check that out and um
+it'll all only get better now the interesting thing with this if you know about llms is the temperature they kept
+it really low I've never seen it this low uh but if that's okay that's okay
+and then usually the models you know uh demos I'll see like0 6 but basically 0.1
+of temperature means that very concise answers you don't want creativity or
+elaboration you know it's really trying to set things down so if they said that
+they were still getting all of this kind of verbose you know awesome responses but they're incorrect um at
+temp.1 is interesting so and granted these are hard tasks like J GPT the
+primary focus was not to uh generate molecules uh even though it's it's you
+know it can be it can be trained on in some of these uh data
+sets so that's the one for uh chem and then any any other
+questions and I'll have all this up and definitely so if this is just you know if you let if you missed last week not
+only look at like Andrew Ang stuff and Andre karpa's is my last week with
+especially for drug Discovery is that I covered um you know fine-tuning uh rag
+in in pretty good detail so that's that's up on YouTube on it's chemical Q
+device any
+questions so Kevin uh maybe I can clarify my uh question from before
+uh uh so like the idea is
+um you know we in in our mean my research we start with the a reactant
+and a product pair and we uh you know generate those manually
+or we we ask some experiment list or or we look for those in some data sets
+where people at least uh you know used some known
+Reactions where someone said hey this is one sort of a deal soer or this is one
+sort of a substitution reaction or this is ring opening reaction and uh then we
+do things from there on now in cam Crow when you were you know presenting on it
+at some point of time you mentioned that it can provide the
+reaction uh so did you mean like it can give both the reactant and the product
+uh from like from the language model
+yeah so it's based on these tools so whatever each of these tools can do so say for instance like for functional
+groups like you want it to have carbonal or you want it to be an Esther or amid those types of things so that would fall
+under that and I think a lot of these are based under the IBM kind of like this uh robber reaction is is the way
+these look like um but you can get like I said in the paper at the end like so
+in the supplement they go through I don't know like maybe 15 or 20 questions
+where it says just those types of things um as far as it's I think it was
+typically the outputs so say like I need this to be at this specific cost and
+this and that and I I think what whatever and this goes for any kind of like uh synthetic
+chemist or you know biochemist is basically whatever software tools today
+you know those were based on you know the available Hardware like just regular
+machine learning if it's supervised learning or unsupervised learning but not with massive number of parameters so
+basically you can run all these in the cloud and the hardware is enabling it in order to implement all these tools so
+say for instance like they said for web search you know they could use but it was preferred to use litat search right
+as opposed to web search you know probably more academic and some of these other ones the smile ones are are more
+kind of uh common similarity I've done in a different llm um but it's basically
+you know I I I think that's the case that you're going to find is you know what's the type of machine learning that
+was used to develop today's tools instead of like the emerging tools and
+you know what type of Hardware requirements if I run on a 70 billion um you know llama 3 I typically get
+better answers than the eight billion okay and I I think that's a good
+reflection as far as like you know if you're just doing things that were based on reinforcement learning and it can
+only look at like two or three variables at a time um th what this is saying is
+it's taking all of this you know reaction predict uh reaction planner
+reaction execute so whatever you're able to do under each of these you know know
+is is basically helping you um you know get to the end points
+so they they gave like a s sentence or two explanation for um for the ones that
+were really important and other ones too but I you know I think it's opening
+the door up to you know very powerful reaction planning
+software yeah yeah so like uh um you know because you know here the
+list is pretty long and uh uh the applications are too
+diverse uh because they they they say you know you can search the reaction you
+can check the reaction you can plan it execute it and do you know get some summary out of it so this is like
+talking about all different kind of things uh uh but uh you know when we are
+like studying some like a reaction there are generally two type of
+uh approaches one is to check the energies uh stabilization if this if the
+something goes and reacts how how much is its interaction energy if if the
+interaction energy you know if the the energy goes out that means it's lower in
+energy thermodynamically stable the other thing to look at is like you know
+the kinetics of the reaction so I have seen uh in drug Discovery people
+checking out the thermodynamics part of it I not aware If U kinetics uh is
+actually used and uh now because I'm working on kinetic uh models and you
+know methods I I just was trying to uh see if there's an application here
+um I mean I I I'll certainly look at the paper also to to find more about it yeah
+I mean Beyond just the like the hardware Advance advancements is it's really the prompting so say for instance like if
+you could just describe all that like in a sentence or two and then you just give it to chem cro versus standard gp4 you
+know how how well you know if you're just looking at reactants whatever you want to do uh how well will it perform
+they did make this open source to a certain extent you can run it on hugging
+face I think you need to log in at some point um but on GitHub they do have some notebooks too so I would I'm probably
+going to be checking those out um but I I think that's where
+everything's headed is is trying to make it as as very easy as we can and I I think with a lot of these explanations
+they can be defined in a sentence or two and then the AI um you know based on gp4
+or llama 3 just because it can do that anyway and now incorporating these chem tools you know can can address that in
+in like a sentence or
+two any other questions so if you joined a little bit late so this is the second paper and
+then the first paper it featured more so this is a huge slide so I don't think
+it's coming to many people super fast but as you can see some of the agents names are software engineer modeling
+expert reviewer or even boss so um if you miss this specific one this
+is basically you know agents are supposed to be very specialized to their own specific skills so software engineer
+is different from a modeling expert and if they want to you know look at these specific sources is say in a sentence or
+two then uh they can use rag uh to get for malib Denine is basically uh it's
+like graphing but with malum and it looks at the paper uh based on malining
+here and likewise this was for a specific application so it they needed
+to know about meliponine protein material expert and multiscale modeling expert so as you can see you know like
+your literature studies can go up and up um but it's something to be aware and I think that phrase that even I think
+Jensen Wong used it in Nvidia is especially you know and like AI on
+itself like it needs to be plugged into the wall well who gives it electricity we do you know so there's those
+interactions with humans to begin with um and we have to mine it and I'm sure there'll be robots for that but just
+keep in mind it it's more about like the people that can use the tools to say like okay you're given a task to this
+paper um but uh you know you are are good and you know Rag and you know how
+to uh use an agent to if you have a single line question to ask it even though you might have to still read the
+paper anyway you know so it's like you know it's just more and more Reliance and the way I explained to other people
+is we've had automation for some time but agents and specific are going to be a whole another level of automation
+because now if you could see that there's errors correct the errors write new code those are those are typically
+associated with uh human-based jobs right so we're going to have different jobs I believe and you know in a more
+supporting role of AI but I think it's Absolut absolutely Paramount to know um
+Beyond just your domain expertise if it's in drug Discovery or medicine or pharmacology to now use AI to support
+that your domain expertise but I the way it's looking like I don't think you'll be able to get away with just the
+domain expertise and that's kind of reflected um Jensen Wong kind ofh said
+that it's more
+paraphrase so I would you know as far as getting started uh because it's
+just you just have to watch a bunch of YouTube videos and if you have coding experience experiments too be very Savvy
+about finding other you know note books that are Apache to or MIT you know these types of things and data sets are
+usually CCB 4.0 meaning they're pretty open and then you just start developing
+right and I I don't think just a regular education and AI will hold up and in
+fact Jensen at Nvidia said don't get a computer science degree at all um I
+would say get a couple semesters in you uh but it's more going to be about the
+uh practice iCal application in the field working with AI and advanced
+software you know uh increasingly better Hardware so yeah I there's still some
+time for sure but I I think you would want to be diligent as far as saying like if your boss says okay well
+somebody else or let's just say positively um you know how to use Rag
+and and fine tune and you know how to use it with agents and you can accomplish these tasks like this and
+then you know somebody else's job is going to change to support that like there's going to be differences but I
+would I would expect especially for me a lot less late nights coding and O and
+overnights coding um where the computer do does that but more using your domain
+expertise interacting with llms or you know geni uh to get answers that instead
+of like you know explaining several parag s in in a sentence or two and then it does that one and then you say okay I
+need this agent to to do this or you know they're all automated
+so but these are both good papers like I said a lot of times if they're Lama 270
+billion parameter [Music] um uh in this specific case I think it's
+just the original and then this other one this fine-tuning this one uh for ACS
+they Mech GPT it's based on a different paper but they said they had a better data set with these two here so they use
+Wikipedia in specific for this kind of materials based stuff and then for atomistic modeling with 8200 QA Pairs
+and i' also be interested because like you know a lot of times just things just don't work anyway like on your first try
+and then you just have to keep you know getting better so if anybody wants to put in the chat or you can come on to to
+just you know describe some of your Victors that you've had um but I'm still trying to get this one it's a molecular
+instructions as I showed before so it's based off this data set here in
+the lower right and some of them I think it's just it's either too complex how
+I'm doing it um I tried to change the Optimizer from 8bit to 32bit which is
+more that's that's actually full scale and eight bit is is like quarter and
+then I change the learning rate that helped just a little bit but I'm still trying to get one of these to work to
+fine-tune a llama 3 uh 8 billion parameter on this specific one and I
+would recommend this so you could do protein design there's like four or five different types of protein design I'm
+working on catalytic um so for this one that exhibits the desired activity and
+specifity so there's other ones where you can so go the other way so based on a on a protein sequence that you already
+know um so represented by oneel codes like this you could say uh describe the
+uh properties of it uh this is with mole instructions and this is pretty recent I
+believe I think this is 2023 but it's a lot better than the some other um kind
+of biocham data sets that I've seen so and there's you kind of have to
+if you're fine-tuning you can only pick like one of them at a time uh like one
+of these sub data sets I think the short the smallest one was like 60 60 megabytes which is decent
+size you know just the the saying goes It's the application thereof right
+and I would highly suggest keep coding you know for everybody I don't think that's over I think that's still a huge
+thing and the only way that I really learned machine learning was by coding like changing the learning rate changing
+you know optimizers loss functions you know loss you know schedule loss these
+types of things and I think that's the only way
+because if you just learn it it's like Just Books smart um but to interact with with computers and software I think that
+you still have to code any other questions regarding any
+of the other slides and again I'll have these up um
+the so the last one did quite well like over 7,000 people saw it on YouTube
+which is phenomenal and it's the specific area that people want to be in so people want to do you know geni drug
+Discovery these types of things and that's what it excites people because
+they use it all the time like meta a chat GPT so
+um you know only specific fields in in AI I think will continue to
+flourish and you would be surprised the number of other principles uh from supervised learning uh with llama 3 they
+actually towards the end like uh before they assigned this uh you know this instruct models the SE the eight billion
+and the 70 billion parameter they do supervise learning meaning that the data sets at that uh point are labeled right
+so most people would say oh it's just fully unsupervised no to get the best results they're actually mixing in other
+types of uh machine learning and at one point I heard them say you know it's
+actually classification at specific times of what it's doing with words like it it literally classifies words so that
+would be something more associated with you know just a simple binary
+classification so you know I based on other people's kind of uh
+reactions to this too is that you know it seems like a lot of the attention is
+show shifting to this point and those attending you know you probably already figured that out and those online you
+know it's it's something definitely to um I'd say actively get involved and it
+is complex you know rag fine-tuning uh agents these types of
+things but if you've learned other types of machine learning you should be able to do it that that's my experience so
+far uh anybody else that we haven't heard from so Andre or
+edwi and other resources to check out uh check out if you search in for
+generative AI notebooks in Google you'll get the first one for me is um it's
+Geminis they're all Apache too so you just go on there they have specific ones for health um and what's unique about
+Gemini is it's multimodal so meaning and this is the type of technology that Apple's been you know interested in so
+you can in input text speech image uh I think video as well and then you can
+also output those any combination so llama 3 uh they said they're going to
+have a multimodal model and I think chat GPT I I don't know if they keep Dolly
+separate or how they do it but they do stuff that it that is multimodal so just keep in mind of these
+things like if you can store they're calling it a tiny large language Mo model on a phone that does um you know
+that takes in all these different input input types now I think just because of
+the logistics if you just want to do text generation the Llama 3 um you know
+chat chat GPT for or going to be five pretty soon that's probably still the best bet but if you want to do all this
+other kind of cool stuff like on that GitHub that on Gemini's GitHub um which is Google's that that seems to be an
+option too and you know based on other
+questions that I've got if you if you're lost in hugging face just look in the upper right leftand corner like in the
+uh models and you'll see text generation multimodal uh textto text um text to
+speech speech to text and like you have to figure out what you really want to do and that's a good starting point and
+data sets will be important too um you know
+parameters model size you can all do all kinds of stuff you can uh just they're
+called Laura uh adapters and it's basically these fine-tune parameters
+that go on top of the original pre-trained model and you could just save those so people might actually like
+those because then you don't have to download the whole model uh if somebody just wants to see your adapters your low
+adapters so just lots of stuff to work on and you know I'd say just looking
+ahead it's just you know you have to go through a bunch of stuff first and then
+you can say okay this for sure because if you want to take like biomolecules
+and be the fastest to the market say like your customer has a line like a single U sentence they say they want
+this done that goes directly into AI the molecule is made it shipped straight to
+their warehouse I'd like to say a record time so that that's an example of an
+application and you know something that's likely feasible um the robo
+reaction I showed earlier I don't think is new but it's that pipeline of it's
+the convenience factor of saying like when this gets better you know type this into this line and they did have five
+molecules at least that worked um but you see what I mean it's like it's it's
+less and less of the human planning and that's kind of baked into the software right for it to do and I it could be
+energies you know so thermodynamic product or kinetic product
+or but I you know I would say if there's question as far as like whatever today's software can do I'm pretty sure that
+this can do a lot
+better okay so any other last questions or comments appreciate everybody coming on
+and definitely um to stay in tuned definitely Andrew a uh
+deeplearning.ai you have Andre carpy you have me with uh drug Discovery and you
+know there's there's a lot of good resources out there and just specific topics if you want to do llama 3 rag
+llama 3 fine tune just search on YouTube and just you know take take some
+screenshots awesome I appreciate everybody coming on this has been Thursday May 2nd 2024 uh episode 133 for
+uh meta llama 3 drug Discovery generative AI uh assistant uh have a
+good rest of the night and have a good rest of the week everybody take care
